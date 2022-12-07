@@ -1,11 +1,669 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
     <title>Ordenadores</title>
 </head>
 <body>
-    <p>Hello World!</p>
+    <a href="/relatorios-unificados.html" id="change-button">RELATÓRIOS UNIFICADOS</a>
+
+    <div class="corpo">
+
+        <div class="algoritmo">
+            <h1>BubbleSort</h1>
+            <h3>Complexidades:</h3>
+            <p>Melhor caso: O(n)</p>
+            <p>Caso médio: O(n²)</p>
+            <p>Pior Caso: O(n²)</p>
+            <h3>Código:</h3>
+<pre>
+    boolean houveTroca = true;
+    while (houveTroca) {
+        houveTroca = false;
+        for (int i = 0; i < (vetor.length)-1; i++) {
+            if (vetor[i] > vetor[i+1]) {
+                Integer variavelAuxiliar = vetor[i+1];
+                vetor[i+1] = vetor[i];
+                vetor[i] = variavelAuxiliar;
+                houveTroca = true;
+            }
+        }
+    }
+</pre>
+            <h3>Dados:</h3>
+            <table>
+                <tr>
+                    <th></th>
+                    <th>1.000</th>
+                    <th>10.000</th>
+                    <th>500.000</th>
+                    <th>1.000.000</th>
+                </tr>
+                <tr>
+                    <td>Melhor caso</td>
+                    <td>0.0001019</td>
+                    <td>0.0007517</td>
+                    <td>0.0063513</td>
+                    <td>0.0027132</td>
+                </tr>
+                <tr>
+                    <td>Caso Médio</td>
+                    <td>0.0115742</td>
+                    <td>0.1879073</td>
+                    <td>1,799.6188618</td>
+                    <td>3,779.1996098</td>
+                </tr>
+                <tr>
+                    <td>Pior caso</td>
+                    <td>0.0116824</td>
+                    <td>0.1828292</td>
+                    <td>804.3056884</td>
+                    <td>1,769.4725145</td>
+                </tr>
+            </table>
+            <img src="graficos/bubblesort.png" alt="grafico bubblesort">
+        </div>
+
+        <div class="algoritmo">
+            <h1>SelectionSort</h1>
+            <h3>Complexidades:</h3>
+            <p>Melhor caso: O(n²)</p>
+            <p>Caso médio: O(n²)</p>
+            <p>Pior Caso: O(n²)</p>
+            <h3>Código:</h3>
+<pre>
+    int menor, indiceMenor;
+    for (int i = 0; i < vetor.length - 1; i++) {
+        menor = vetor[i];
+        indiceMenor = i;
+
+        for (int j = i + 1; j < vetor.length; j++) {
+            if (vetor[j] < menor) {
+                menor = vetor[j];
+                indiceMenor = j;
+            }
+        }
+
+        vetor[indiceMenor] = vetor[i];
+        vetor[i] = menor;
+    }
+</pre>
+            <h3>Dados:</h3>
+            <table>
+                <tr>
+                    <th></th>
+                    <th>1.000</th>
+                    <th>10.000</th>
+                    <th>500.000</th>
+                    <th>1.000.000</th>
+                </tr>
+                <tr>
+                    <td>Melhor caso</td>
+                    <td>0.0062992</td>
+                    <td>0.0318013</td>
+                    <td>99.4320209</td>
+                    <td>840.1073994</td>
+                </tr>
+                <tr>
+                    <td>Caso Médio</td>
+                    <td>0.0073730</td>
+                    <td>0.0340786</td>
+                    <td>527.6048852</td>
+                    <td>1,477.2936786</td>
+                </tr>
+                <tr>
+                    <td>Pior caso</td>
+                    <td>0.0033953</td>
+                    <td>0.0415680</td>
+                    <td>5,131.9021440</td>
+                    <td>7,184.6630016</td>
+                </tr>
+            </table>
+            <img src="graficos/selectionsort.png" alt="grafico selectionsort">
+        </div>
+
+        <div class="algoritmo">
+            <h1>InsertionSort</h1>
+            <h3>Complexidades:</h3>
+            <p>Melhor caso: O(n)</p>
+            <p>Caso médio: O(n²)</p>
+            <p>Pior Caso: O(n²)</p>
+            <h3>Código:</h3>
+<pre>
+    int j, chave, i;
+    for (j = 1; j < vetor.length; j++) {
+        chave = vetor[j];
+        for (i = j - 1; (i >= 0) && (vetor[i] > chave); i--) {
+            vetor[i + 1] = vetor[i];
+        }
+        vetor[i + 1] = chave;
+    }
+</pre>
+            <h3>Dados:</h3>
+            <table>
+                <tr>
+                    <th></th>
+                    <th>1.000</th>
+                    <th>10.000</th>
+                    <th>500.000</th>
+                    <th>1.000.000</th>
+                </tr>
+                <tr>
+                    <td>Melhor caso</td>
+                    <td>0.0017922</td>
+                    <td>0.0029886</td>
+                    <td>0.0146368</td>
+                    <td>0.0076736</td>
+                </tr>
+                <tr>
+                    <td>Caso Médio</td>
+                    <td>0.0044275</td>
+                    <td>0.0390992</td>
+                    <td>985.4918210</td>
+                    <td>1,970.9836420</td>
+                </tr>
+                <tr>
+                    <td>Pior caso</td>
+                    <td>0.0026935</td>
+                    <td>0.0718912</td>
+                    <td>809.1287360</td>
+                    <td>1,456.4317248</td>
+                </tr>
+            </table>
+            <img src="graficos/insertionsort.png" alt="grafico insertionsort">
+        </div>
+
+        <div class="algoritmo">
+            <h1>MergeSort</h1>
+            <h3>Complexidades:</h3>
+            <p>Melhor caso: O(n log n)</p>
+            <p>Caso médio: O(n log n)</p>
+            <p>Pior Caso: O(n log n)</p>
+            <h3>Código:</h3>
+<pre>
+    private static void merge(Integer[] x, int inicio, int fim) {
+        int meio;
+        if (inicio < fim) {
+            meio = (inicio + fim)/2;
+            merge(x, inicio, meio);
+            merge(x, meio+1, fim);
+            intercala(x, inicio, fim, meio);
+        }
+    }
+
+    private static void intercala(Integer[] x, int inicio, int fim, int meio) {
+        int i = inicio, j = meio + 1, k = 0, n = fim-inicio+1;
+        Integer[] temp = new Integer[n];
+
+        while (i <= meio || j <= fim) {
+            if (i > meio) {
+                temp[k++] = x[j++];
+            } else if (j > fim) {
+                temp[k++] = x[i++];
+            } else if (x[i] < x[j]) {
+                temp[k++] = x[i++];
+            } else {
+                temp[k++] = x[j++];
+            }
+        }
+
+        for (j = 0; j < n; j++) {
+            x[inicio + j] = temp[j];
+        }
+    }
+</pre>
+            <h3>Dados:</h3>
+            <table>
+                <tr>
+                    <th></th>
+                    <th>1.000</th>
+                    <th>10.000</th>
+                    <th>500.000</th>
+                    <th>1.000.000</th>
+                </tr>
+                <tr>
+                    <td>Melhor caso</td>
+                    <td>0.0019122</td>
+                    <td>0.0023530</td>
+                    <td>0.0408535</td>
+                    <td>0.0921438</td>
+                </tr>
+                <tr>
+                    <td>Caso Médio</td>
+                    <td>0.0033119</td>
+                    <td>0.0074243</td>
+                    <td>0.1033221</td>
+                    <td>0.2481925</td>
+                </tr>
+                <tr>
+                    <td>Pior caso</td>
+                    <td>0.0018206</td>
+                    <td>0.0030166</td>
+                    <td>0.0577146</td>
+                    <td>0.1652205</td>
+                </tr>
+            </table>
+            <img src="graficos/mergesort.png" alt="grafico mergesort">
+        </div>
+
+        <div class="algoritmo">
+            <h1>QuickSort</h1>
+            <h3>Complexidades:</h3>
+            <p>Melhor caso: O(n²)</p>
+            <p>Caso médio: O(n log n)</p>
+            <p>Pior Caso: O(n log n)</p>
+            <h3>Código:</h3>
+<pre>
+    public static void quicksort(Integer[] x, int inicio, int fim) {
+        while(inicio < fim) {
+            int particao = particionador(x, inicio, fim);
+            if (particao - inicio <= fim - (particao + 1)) {
+                quicksort(x, inicio, particao);
+                inicio = particao + 1;
+            } else {
+                quicksort(x, particao + 1, fim);
+                fim = particao;
+            }
+        }
+    }
+
+    private static int particionador(Integer[] x, int inicio, int fim) {
+        int temp = x[inicio];
+        int i = inicio;
+        for (int j = inicio + 1; j <= fim; j++)
+            if (x[j] < temp) {
+            i++;
+            trocar(x, i, j);
+        }
+        trocar(x, inicio, i);
+        return i;
+    }
+
+    private static void trocar(Integer[] x, int i, int j) {
+        int temp = x[i];
+        x[i] = x[j];
+        x[j] = temp;
+    }
+</pre>
+            <h3>Dados:</h3>
+            <table>
+                <tr>
+                    <th></th>
+                    <th>1.000</th>
+                    <th>10.000</th>
+                    <th>500.000</th>
+                    <th>1.000.000</th>
+                </tr>
+                <tr>
+                    <td>Melhor caso</td>
+                    <td>0.0063962</td>
+                    <td>0.0256083</td>
+                    <td>579.7010712</td>
+                    <td>985.4918210</td>
+                </tr>
+                <tr>
+                    <td>Caso Médio</td>
+                    <td>0.0028322</td>
+                    <td>0.0037624</td>
+                    <td>672.4532426</td>
+                    <td>1,001.9553315</td>
+                </tr>
+                <tr>
+                    <td>Pior caso</td>
+                    <td>0.0034082</td>
+                    <td>0.1204787</td>
+                    <td>739.6985668</td>
+                    <td>1,092.1313113</td>
+                </tr>
+            </table>
+            <img src="graficos/quicksort.png" alt="grafico quicksort">
+        </div>
+
+        <div class="algoritmo">
+            <h1>HeapSort</h1>
+            <h3>Complexidades:</h3>
+            <p>Melhor caso: O(n log n)</p>
+            <p>Caso médio: O(n log n)</p>
+            <p>Pior Caso: O(n log n)</p>
+            <h3>Código:</h3>
+<pre>
+    public static void heapsort(Integer[] x) {
+        for (int i = x.length / 2 - 1; i >= 0; i--) {
+            deslocar(x, i, x.length);
+        }
+        for (int i = x.length - 1; i > 0; i--) {
+            trocar(x, 0, i);
+            deslocar(x, 0, i);
+        }
+    }
+
+    private static void deslocar(Integer[] x, int i, int n) {
+        int aux, temp;
+
+        for (temp = x[i]; esquerda(i) < n; i = aux) {
+            aux = esquerda(i);
+            if (aux != n - 1 && (x[aux] < x[aux + 1])) {
+                aux++;
+            }
+            if (temp < x[aux]) {
+                x[i] = x[aux];
+            } else {
+                break;
+            }
+        }
+        x[i] = temp;
+    }
+
+    private static int esquerda(int i) {
+        return 2 * i + 1;
+    }
+
+    private static void trocar(Integer[] x, int i, int j) {
+        int temp = x[i];
+        x[i] = x[j];
+        x[j] = temp;
+    }
+</pre>
+            <h3>Dados:</h3>
+            <table>
+                <tr>
+                    <th></th>
+                    <th>1.000</th>
+                    <th>10.000</th>
+                    <th>500.000</th>
+                    <th>1.000.000</th>
+                </tr>
+                <tr>
+                    <td>Melhor caso</td>
+                    <td>0.0030404</td>
+                    <td>0.0046002</td>
+                    <td>0.0460670</td>
+                    <td>0.0961527</td>
+                </tr>
+                <tr>
+                    <td>Caso Médio</td>
+                    <td>0.0018435</td>
+                    <td>0.0032658</td>
+                    <td>0.1941346</td>
+                    <td>0.5109626</td>
+                </tr>
+                <tr>
+                    <td>Pior caso</td>
+                    <td>0.0019910</td>
+                    <td>0.0028745</td>
+                    <td>0.0785659</td>
+                    <td>0.1834083</td>
+                </tr>
+            </table>
+            <img src="graficos/heapsort.png" alt="grafico heapsort">
+        </div>
+
+        <div class="algoritmo">
+            <h1>BucketSort</h1>
+            <h3>Complexidades:</h3>
+            <p>Melhor caso: O(n²)</p>
+            <p>Caso médio: O(n + k)</p>
+            <p>Pior Caso: O(n + k)</p>
+            <h3>Código:</h3>
+<pre>
+    static Integer[] bucketsort(Integer[] x, int maior) {
+        int[] bucket = new int[maior + 1];
+        Integer[] vetor_ordenado = new Integer[x.length];
+
+        for (int i = 0; i < x.length; i++) {
+            bucket[x[i]]++;
+        }
+
+        int posicao = 0;
+        for (int i = 0; i < bucket.length; i++) {
+            for (int j = 0; j < bucket[i]; j++) {
+                vetor_ordenado[posicao++] = i;
+            }
+        }
+        return vetor_ordenado;
+    }
+
+    static int maior(Integer[] x) {
+        int maior = 0;
+        for (int i = 0; i < x.length; i++) {
+            if (x[i] > maior) {
+                maior = x[i];
+            }
+        }
+        return maior;
+    }
+</pre>
+            <h3>Dados:</h3>
+            <table>
+                <tr>
+                    <th></th>
+                    <th>1.000</th>
+                    <th>10.000</th>
+                    <th>500.000</th>
+                    <th>1.000.000</th>
+                </tr>
+                <tr>
+                    <td>Melhor caso</td>
+                    <td>0.0001989</td>
+                    <td>0.0016129</td>
+                    <td>0.0155457</td>
+                    <td>0.0112756</td>
+                </tr>
+                <tr>
+                    <td>Caso Médio</td>
+                    <td>0.0047026</td>
+                    <td>0.0045075</td>
+                    <td>0.0146568</td>
+                    <td>0.0141143</td>
+                </tr>
+                <tr>
+                    <td>Pior caso</td>
+                    <td>0.0000089</td>
+                    <td>0.0000867</td>
+                    <td>0.0075139</td>
+                    <td>0.0188902</td>
+                </tr>
+            </table>
+            <img src="graficos/bucketsort.png" alt="grafico bucketsort">
+        </div>
+
+        <div class="algoritmo">
+            <h1>ShellSort</h1>
+            <h3>Complexidades:</h3>
+            <p>Melhor caso: O(n log2 n)</p>
+            <p>Caso médio: depende da sequência do gap</p>
+            <p>Pior Caso: O(n log2 n)</p>
+            <h3>Código:</h3>
+<pre>
+    int j;
+    for(int espaco = vetor.length / 2; espaco > 0; espaco /= 2 ){
+        for(int i = espaco; i < vetor.length; i++) {
+            Integer temp = vetor[i];
+            for (j = i; j >= espaco && vetor[j - espaco] > temp; j -= espaco) {
+                vetor[j] = vetor[j - espaco];
+            }
+            vetor[j] = temp;
+        }
+    }
+</pre>
+            <h3>Dados:</h3>
+            <table>
+                <tr>
+                    <th></th>
+                    <th>1.000</th>
+                    <th>10.000</th>
+                    <th>500.000</th>
+                    <th>1.000.000</th>
+                </tr>
+                <tr>
+                    <td>Melhor caso</td>
+                    <td>0.0026822</td>
+                    <td>0.0087848</td>
+                    <td>0.0317176</td>
+                    <td>0.0534733</td>
+                </tr>
+                <tr>
+                    <td>Caso Médio</td>
+                    <td>0.0029340</td>
+                    <td>0.0044019</td>
+                    <td>0.2328758</td>
+                    <td>0.7097163</td>
+                </tr>
+                <tr>
+                    <td>Pior caso</td>
+                    <td>0.0017547</td>
+                    <td>0.0020961</td>
+                    <td>0.0402933</td>
+                    <td>0.2086798</td>
+                </tr>
+            </table>
+            <img src="graficos/shellsort.png" alt="grafico shellsort">
+        </div>
+
+        <div class="algoritmo">
+            <h1>RadixSort</h1>
+            <h3>Complexidades:</h3>
+            <p>Melhor caso: O(n log n)</p>
+            <p>Caso médio: O(n log n)</p>
+            <p>Pior Caso: O(n²)</p>
+            <h3>Código:</h3>
+<pre>
+    List<Integer>[] buckets = new ArrayList[10];
+    for (int i = 0; i < buckets.length; i++) {
+        buckets[i] = new ArrayList<Integer>();
+    }
+
+    boolean flag = false;
+    int tmp = -1, divisor = 1;
+    while (!flag) {
+        flag = true;
+        for (Integer i : vetor) {
+            tmp = i / divisor;
+            buckets[tmp % 10].add(i);
+            if (flag && tmp > 0) {
+                flag = false;
+            }
+        }
+        int a = 0;
+        for (int b = 0; b < 10; b++) {
+            for (Integer i : buckets[b]) {
+                vetor[a++] = i;
+            }
+        buckets[b].clear();
+        }
+        divisor *= 10;
+    }
+</pre>
+            <h3>Dados:</h3>
+            <table>
+                <tr>
+                    <th></th>
+                    <th>1.000</th>
+                    <th>10.000</th>
+                    <th>500.000</th>
+                    <th>1.000.000</th>
+                </tr>
+                <tr>
+                    <td>Melhor caso</td>
+                    <td>0.0020629</td>
+                    <td>0.0114335</td>
+                    <td>0.1207535</td>
+                    <td>0.2422149</td>
+                </tr>
+                <tr>
+                    <td>Caso Médio</td>
+                    <td>0.0021892</td>
+                    <td>0.0029989</td>
+                    <td>0.2184437</td>
+                    <td>0.6833251</td>
+                </tr>
+                <tr>
+                    <td>Pior caso</td>
+                    <td>0.0017936</td>
+                    <td>0.0028701</td>
+                    <td>0.0880944</td>
+                    <td>0.4930874</td>
+                </tr>
+            </table>
+            <img src="graficos/radixsort.png" alt="grafico radixsort">
+        </div>
+
+        <div class="algoritmo">
+            <h1>CountingSort</h1>
+            <h3>Complexidades:</h3>
+            <p>Melhor caso: O(n + k)</p>
+            <p>Caso médio: O(n + k)</p>
+            <p>Pior Caso: O(n + k)</p>
+            <h3>Código:</h3>
+<pre>
+    public static void countingsort(Integer[] vetor, int tamanho) {
+        Integer[] vetor_ordenado = new Integer[tamanho + 1];
+
+        int maior = vetor[0];
+        for (int i = 1; i < tamanho; i++) {
+            if (vetor[i] > maior) {
+                maior = vetor[i];
+            }
+        }
+        int[] contador = new int[maior + 1];
+
+        for (int i = 0; i < maior; ++i) {
+            contador[i] = 0;
+        }
+
+        for (int i = 0; i < tamanho; i++) {
+            contador[vetor[i]]++;
+        }
+
+        for (int i = 1; i <= maior; i++) {
+            contador[i] += contador[i - 1];
+        }
+
+        for (int i = tamanho - 1; i >= 0; i--) {
+            vetor_ordenado[contador[vetor[i]] - 1] = vetor[i];
+            contador[vetor[i]]--;
+        }
+
+        for (int i = 0; i < tamanho; i++) {
+            vetor[i] = vetor_ordenado[i];
+        }
+    }
+</pre>
+            <h3>Dados:</h3>
+            <table>
+                <tr>
+                    <th></th>
+                    <th>1.000</th>
+                    <th>10.000</th>
+                    <th>500.000</th>
+                    <th>1.000.000</th>
+                </tr>
+                <tr>
+                    <td>Melhor caso</td>
+                    <td>0.0002881</td>
+                    <td>0.0022553</td>
+                    <td>0.0137658</td>
+                    <td>0.0297382</td>
+                </tr>
+                <tr>
+                    <td>Caso Médio</td>
+                    <td>0.0037571</td>
+                    <td>0.0036522</td>
+                    <td>0.0289850</td>
+                    <td>0.0402264</td>
+                </tr>
+                <tr>
+                    <td>Pior caso</td>
+                    <td>0.0000116</td>
+                    <td>0.0000975</td>
+                    <td>0.0070647</td>
+                    <td>0.0306080</td>
+                </tr>
+            </table>
+            <img src="graficos/countingsort.png" alt="grafico countingsort">
+        </div>
+    </div>
+
 </body>
 </html>
